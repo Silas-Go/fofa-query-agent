@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "FOFA答题输出 MVP 0.2",
+  "title": "FOFA答题输出 MVP 0.3",
   "description": "MVP增加暂未支持状态，标识本版实现范围缺口，不代表平台能力不足。",
   "type": "array",
   "items": {
