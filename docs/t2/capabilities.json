@@ -1,0 +1,1357 @@
+{
+  "version": "t2-v1",
+  "source": {
+    "page": "https://fofa.info/",
+    "asset": "https://v5static.fofa.info/_nuxt/Bw0mZRLA.js",
+    "checked_at": "2026-09-30",
+    "asset_sha256": "13b28bdafb0bcdef1df1b93b7d6bf015213cb2b343a36ea05b51fa41bd43d5a1",
+    "extraction": "仅解析公开语法表Oa的静态数据，未执行远程脚本；操作符标记来自页面表格。"
+  },
+  "scope": "搜索语法条目，包含字段、函数及组合示例；不把API输出字段等同于可搜索字段。",
+  "operators": {
+    "=": "字段相关的普通匹配，不能统一当精确等于",
+    "==": "全局完整匹配操作符；逐字段支持需确认",
+    "!=": "仅用于标注支持的字段",
+    "*=": "模糊匹配操作符；通配符语法和边界待确认",
+    "&&": "与",
+    "||": "或",
+    "()": "显式分组"
+  },
+  "fields": [
+    {
+      "field": "ip",
+      "meaning": "资产IP或CIDR",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "ip=\"1.1.1.1\"",
+        "ip=\"220.181.111.1/24\"",
+        "ip=\"2600:9000:202a:2600:18:4ab7:f600:93a1\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "port",
+      "meaning": "服务端口",
+      "value_type": "integer_as_quoted_decimal",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "port=\"6379\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "domain",
+      "meaning": "资产根域",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "domain=\"qq.com\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "host",
+      "meaning": "访问主机名",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "host=\".fofa.info\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "==在全局操作符表中出现；此表没有逐字段==支持标记。"
+      ]
+    },
+    {
+      "field": "os",
+      "meaning": "操作系统识别",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "os=\"centos\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "server",
+      "meaning": "服务器标识",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "server=\"Microsoft-IIS/10\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "==在全局操作符表中出现；此表没有逐字段==支持标记。"
+      ]
+    },
+    {
+      "field": "asn",
+      "meaning": "自治系统号",
+      "value_type": "integer_as_quoted_decimal",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "asn=\"19551\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "org",
+      "meaning": "网络组织",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "org=\"LLC Baxet\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "is_domain",
+      "meaning": "是否绑定域名",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "is_domain=true",
+        "is_domain=false"
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "is_ipv6",
+      "meaning": "是否IPv6",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "is_ipv6=true",
+        "is_ipv6=false"
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "app",
+      "meaning": "FOFA应用识别规则",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "app=\"Microsoft-Exchange\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "本次官方表未标支持!=；不要因其他字段支持排除就自动生成app!=。"
+      ]
+    },
+    {
+      "field": "fid",
+      "meaning": "站点指纹",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "fid=\"sSXXGNUO2FefBTcCLIT/2Q==\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "product",
+      "meaning": "FOFA产品标签",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "product=\"NGINX\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "product.version",
+      "meaning": "产品版本",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "product=\"Roundcube-Webmail\" && product.version=\"1.6.10\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "官方示例与product组合使用；是否支持独立版本条件待确认，对应M024。"
+      ]
+    },
+    {
+      "field": "category",
+      "meaning": "产品门类",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "category=\"服务\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "type",
+      "meaning": "资产记录类型",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "type=\"service\"",
+        "type=\"subdomain\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cloud_name",
+      "meaning": "云服务商",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cloud_name=\"Aliyundun\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "is_cloud",
+      "meaning": "是否云资产",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "is_cloud=true",
+        "is_cloud=false"
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "is_fraud",
+      "meaning": "欺诈标记",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "is_fraud=true",
+        "is_fraud=false"
+      ],
+      "account_note": "（专业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "is_honeypot",
+      "meaning": "蜜罐标记",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "is_honeypot=true",
+        "is_honeypot=false"
+      ],
+      "account_note": "（专业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "protocol",
+      "meaning": "服务协议",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "protocol=\"quic\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "banner",
+      "meaning": "服务响应原文",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "banner=\"users\""
+      ],
+      "account_note": "（注册用户及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "banner_hash",
+      "meaning": "服务响应哈希",
+      "value_type": "integer_as_string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "banner_hash=\"7330105010150477363\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "banner_fid",
+      "meaning": "服务响应结构指纹",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "banner_fid=\"zRpqmn0FXQRjZpH8MjMX55zpMy9SgsW8\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "base_protocol",
+      "meaning": "传输协议",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "base_protocol=\"udp\"",
+        "base_protocol=\"tcp\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "title",
+      "meaning": "网页标题",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "title=\"beijing\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "==在全局操作符表中出现；此表没有逐字段==支持标记。"
+      ]
+    },
+    {
+      "field": "header",
+      "meaning": "HTTP响应头",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "header=\"elastic\""
+      ],
+      "account_note": "（注册用户及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "header_hash",
+      "meaning": "响应头哈希",
+      "value_type": "integer_as_string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "header_hash=\"1258854265\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "body",
+      "meaning": "网页正文",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "body=\"网络空间测绘\""
+      ],
+      "account_note": "（注册用户及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "body_hash",
+      "meaning": "正文哈希",
+      "value_type": "integer_as_string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "body_hash=\"-2090962452\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "js_name",
+      "meaning": "引用的JS文件名",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "js_name=\"js/jquery.js\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "js_md5",
+      "meaning": "引用JS文件的MD5",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "js_md5=\"82ac3f14327a8b7ba49baa208d4eaa15\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cname",
+      "meaning": "CNAME记录",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cname=\"customers.spektrix.com\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cname_domain",
+      "meaning": "CNAME根域",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cname_domain=\"siteforce.com\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "icon_hash",
+      "meaning": "图标哈希",
+      "value_type": "integer_as_string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "icon_hash=\"-247388890\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "status_code",
+      "meaning": "网站响应码",
+      "value_type": "integer_as_quoted_decimal",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "status_code=\"402\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "icp",
+      "meaning": "备案信息",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "icp=\"京ICP证030173号\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "sdk_hash",
+      "meaning": "前端SDK哈希",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "sdk_hash=\"Are3qNnP2Eqn7q5kAoUO3l+w3mgVIytO\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "country",
+      "meaning": "国家或地区代码",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "country=\"CN\"",
+        "country=\"中国\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "region",
+      "meaning": "省州级地域",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "region=\"Zhejiang\"",
+        "region=\"浙江\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "city",
+      "meaning": "城市",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "city=\"Hangzhou\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert",
+      "meaning": "证书全文",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "cert=\"baidu\""
+      ],
+      "account_note": "（注册用户及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.subject",
+      "meaning": "证书持有者信息",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cert.subject=\"Oracle Corporation\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.issuer",
+      "meaning": "证书颁发者信息",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cert.issuer=\"DigiCert\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.subject.org",
+      "meaning": "证书持有者组织",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cert.subject.org=\"Oracle Corporation\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.subject.cn",
+      "meaning": "证书持有者通用名称",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cert.subject.cn=\"baidu.com\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "==在全局操作符表中出现；此表没有逐字段==支持标记。"
+      ]
+    },
+    {
+      "field": "cert.issuer.org",
+      "meaning": "证书颁发者组织",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cert.issuer.org=\"cPanel, Inc.\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.issuer.cn",
+      "meaning": "证书颁发者通用名称",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cert.issuer.cn=\"Synology Inc. CA\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "==在全局操作符表中出现；此表没有逐字段==支持标记。"
+      ]
+    },
+    {
+      "field": "cert.domain",
+      "meaning": "证书持有者根域",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "cert.domain=\"huawei.com\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "官方语法说明指证书持有者根域；不能未经核对扩张成任意SAN或证书所有位置的域名。"
+      ]
+    },
+    {
+      "field": "cert.is_equal",
+      "meaning": "证书颁发者与持有者是否匹配",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "cert.is_equal=true",
+        "cert.is_equal=false"
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.is_valid",
+      "meaning": "证书是否有效",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "cert.is_valid=true",
+        "cert.is_valid=false"
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.is_match",
+      "meaning": "证书与域名是否匹配",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "cert.is_match=true",
+        "cert.is_match=false"
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.is_expired",
+      "meaning": "证书是否过期",
+      "value_type": "boolean",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "cert.is_expired=true",
+        "cert.is_expired=false"
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "jarm",
+      "meaning": "JARM指纹",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "jarm=\"2ad2ad0002ad2ad22c2ad2ad2ad2ad2eac92ec34bcc0cf7520e97547f83e81\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "tls.version",
+      "meaning": "TLS版本",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "tls.version=\"TLS 1.3\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "tls.ja3s",
+      "meaning": "JA3S指纹",
+      "value_type": "string",
+      "operators_documented": [
+        "=",
+        "!=",
+        "*="
+      ],
+      "examples": [
+        "tls.ja3s=\"15af977ce25de452b96affa2addb1036\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.sn",
+      "meaning": "证书序列号",
+      "value_type": "integer_as_string",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "cert.sn=\"356078156165546797850343536942784588840297\""
+      ],
+      "account_note": "未在本表标注",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "官方示例使用十进制数字字符串；保留任意精度，不使用浮点数。"
+      ]
+    },
+    {
+      "field": "cert.not_after.after",
+      "meaning": "证书到期日晚于",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "cert.not_after.after=\"2025-03-01\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "日期形式已确认；秒级精度、严格边界和时区仍需最终核对。"
+      ]
+    },
+    {
+      "field": "cert.not_after.before",
+      "meaning": "证书到期日早于",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "cert.not_after.before=\"2025-03-01\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "日期形式已确认；秒级精度、严格边界和时区仍需最终核对。"
+      ]
+    },
+    {
+      "field": "cert.not_before.after",
+      "meaning": "证书生效日晚于",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "cert.not_before.after=\"2025-03-01\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "cert.not_before.before",
+      "meaning": "证书生效日早于",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "cert.not_before.before=\"2025-03-01\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "after",
+      "meaning": "资产更新时间晚于",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "after=\"2023-01-01\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "日期形式已确认；秒级精度、严格边界和时区仍需最终核对。"
+      ]
+    },
+    {
+      "field": "before",
+      "meaning": "资产更新时间早于",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "before=\"2023-12-01\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "日期形式已确认；秒级精度、严格边界和时区仍需最终核对。"
+      ]
+    },
+    {
+      "field": "after&before",
+      "meaning": "资产更新时间区间组合",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "after=\"2023-01-01\" && before=\"2023-12-01\""
+      ],
+      "account_note": "（个人版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": []
+    },
+    {
+      "field": "ip_filter()",
+      "meaning": "独立IP聚合过滤",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "ip_filter(banner=\"SSH-2.0-OpenSSH_6.7p2\") && ip_filter(icon_hash=\"-1057022626\")"
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "ip_exclude()",
+      "meaning": "独立IP聚合排除",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "ip_filter(banner=\"SSH-2.0-OpenSSH_6.7p2\" && asn=\"3462\") && ip_exclude(title=\"EdgeOS\")"
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "port_size",
+      "meaning": "独立IP端口数量",
+      "value_type": "integer_as_quoted_decimal",
+      "operators_documented": [
+        "=",
+        "!="
+      ],
+      "examples": [
+        "port_size=\"6\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "port_size_gt",
+      "meaning": "独立IP端口数量大于",
+      "value_type": "integer_as_quoted_decimal",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "port_size_gt=\"6\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "port_size_lt",
+      "meaning": "独立IP端口数量小于",
+      "value_type": "integer_as_quoted_decimal",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "port_size_lt=\"12\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "ip_ports",
+      "meaning": "独立IP开放端口集合",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "ip_ports=\"80,161\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "ip_country",
+      "meaning": "独立IP国家",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "ip_country=\"CN\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "ip_region",
+      "meaning": "独立IP省州",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "ip_region=\"Zhejiang\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "ip_city",
+      "meaning": "独立IP城市",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "ip_city=\"Hangzhou\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "ip_after",
+      "meaning": "独立IP更新晚于",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "ip_after=\"2021-03-18\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    },
+    {
+      "field": "ip_before",
+      "meaning": "独立IP更新早于",
+      "value_type": "string",
+      "operators_documented": [
+        "="
+      ],
+      "examples": [
+        "ip_before=\"2019-09-09\""
+      ],
+      "account_note": "（商业版及以上）",
+      "evidence_status": "官方搜索语法表已确认；未执行查询",
+      "exact_operator_status": "==仅全局确认，逐字段未确认",
+      "empty_semantics": "未在本表证明，不能从!=推出非空",
+      "notes": [
+        "独立IP聚合语义；不能替代同一资产记录的AND条件。"
+      ]
+    }
+  ]
+}

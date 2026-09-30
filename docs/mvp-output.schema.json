@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FOFA答题输出 MVP 0.2",
+  "description": "MVP增加暂未支持状态，标识本版实现范围缺口，不代表平台能力不足。",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "题号",
+      "自然语言输入",
+      "状态",
+      "查询语句",
+      "说明",
+      "依据",
+      "结构化条件",
+      "校验结果"
+    ],
+    "properties": {
+      "题号": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "自然语言输入": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "状态": {
+        "enum": [
+          "成功",
+          "输入非法",
+          "条件矛盾",
+          "需要澄清",
+          "能力不支持",
+          "依赖失败",
+          "暂未支持"
+        ]
+      },
+      "查询语句": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "说明": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "依据": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "来源",
+            "依据",
+            "核对日期"
+          ],
+          "properties": {
+            "来源": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "依据": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "核对日期": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            }
+          }
+        }
+      },
+      "结构化条件": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "description": "version=1.0的条件树；字段、操作符和节点形状由validator强制校验。"
+      },
+      "校验结果": {
+        "type": "object",
+        "required": [
+          "通过",
+          "错误"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "通过": {
+            "type": "boolean"
+          },
+          "错误": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "code",
+                "path",
+                "message",
+                "status"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "状态": {
+              "const": "成功"
+            }
+          },
+          "required": [
+            "状态"
+          ]
+        },
+        "then": {
+          "properties": {
+            "查询语句": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "查询语句": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
