@@ -1,66 +1,75 @@
-# FOFA 查询 Agent · Go MVP
+# FOFA 查询答卷生成器（Go）
 
-用 Go 标准库实现：**自然语言 → 结构化条件 JSON → 校验 → FOFA 查询语句**。无需 API Key 或第三方依赖，查询生成器只接收结构化条件。
+按参赛包要求生成可上传的 `答案.json`。当前包：`pkg-08e82c8d`，选手：张致远，共100题。使用 Go 1.22+ 标准库，无第三方运行依赖。
 
-## 运行
+**本包答卷：[submissions/答案.json](submissions/答案.json)**。已完成本地格式与完整性检查，未在比赛网站提交或获得评分。
 
-需要 Go 1.22 或更新版本：
-
-```sh
-go run . serve
-```
-
-打开 [本地页面](http://127.0.0.1:8765)，支持单题、导入题目和导出结果。端口占用时加 `--port 8766`，Ctrl+C 停止。页面和原题嵌入二进制，编译后可独立运行，无需 Python。
+## 生成与检查
 
 ```sh
-go build -o bin/fofa-query-agent .
-./bin/fofa-query-agent serve
+go run . answer fixtures/questions.json -o submissions/答案.json
+go run . check submissions/答案.json
 ```
 
-## 命令行
+输出只含比赛允许的内容：
+
+```json
+{
+  "选手名称": "张致远",
+  "参赛包编号": "pkg-08e82c8d",
+  "答案": [
+    {"题号": "M001-S009", "查询语句": "ip=\"20.247.40.92\""}
+  ]
+}
+```
+
+上面仅演示一条；实际答卷必须覆盖全部100题。非法输入、矛盾或确实不能直接表达的需求填写固定句子：`该需求不能直接转换为FOFA搜索语句`。
+
+缺题、重复题号、未知题号、空答案、缺少选手名称或包编号都会被拦截。输出为 UTF-8 JSON，限制8 MB；输入允许 BOM。导出前完成检查，再原子写入文件，避免留下半份答卷。
+
+使用其他参赛包时必须提供对应模板，保持其中包编号：
+
+```sh
+go run . answer 新题目.json --template 新答案模板.json --name 张致远 -o 答案.json
+go run . check 答案.json --questions 新题目.json
+```
+
+自定义包的检查只核验格式与题号，包编号应与发放文件自行对照。未实现的需求会阻止生成，不会冒充“不能转换”。
+
+## 核心流程
+
+`自然语言 → 结构化条件 JSON → 条件校验 → 确定性查询生成 → 比赛答卷`
+
+- `internal/agent/parser.go`：基础规则解析。
+- `internal/agent/reviewed.json`：Agent 对当前100道题逐题审阅后保存的条件树。按完整原文匹配，不按题号命中；这是本包的作答资料，**不是官方参考答案，也不代表能泛化到任意新题**。
+- `internal/agent/validator.go`：字段、类型、参数范围、组合结构和已实现的矛盾检查。
+- `internal/agent/generator.go`：只接受条件树，校验通过后生成查询；不直接拼接模型输出。
+- `internal/contest/`：保留模板元数据、核对全部题号、输出正式答卷。状态、说明、依据等调试信息不会混入答案文件。
+
+当前本包生成95条查询，5题使用固定拒绝句。**生成数量不是正确率。** 部分产品/地域枚举、空值和通配符、跨平台等价性仍需用比赛环境核验；没有 FOFA 执行验证或评分结果。[作答依据与具体不确定项](docs/answer-notes.md)。
+
+## 调试与原有页面
 
 ```sh
 go run . query '搜索 SSH 协议且端口为 22022 的资产。'
-go run . answer fixtures/questions.json -o outputs/answers.json
 go run . parse '搜索 SSH 协议且端口为 22022 的资产。' > conditions.json
 go run . compile conditions.json
+go run . serve
 ```
 
-输入题目为包含“题号”“自然语言输入”的 JSON 数组，支持1–1000题、题号唯一。网页请求上限2 MB。结果保留原文和顺序，并给出查询、结构化条件、校验结果及拒绝原因。
-
-条件示例：
-
-```json
-{"version":"1.0","condition":{"type":"and","conditions":[{"type":"predicate","field":"protocol","operator":"eq","value":"ssh"},{"type":"predicate","field":"port","operator":"eq","value":22022}]}}
-```
-
-生成：`(protocol="ssh" && port="22022")`。
-
-## 模块和边界
-
-- `internal/agent/parser.go`：规则解析为条件树，无法理解的部分保留为 `unresolved`。
-- `internal/agent/validator.go`：检查结构、字段白名单、操作符、类型、范围、条件矛盾及无法表达的意图。
-- `internal/agent/generator.go`：强制校验后生成查询，失败不输出查询。
-- `internal/agent/engine.go`：串联流程；`internal/server/` 和 `main.go` 提供网页接口与命令行入口。
-
-当前支持基础 IP/CIDR、端口、主域/主机、部分国家和协议、ASN、标题/正文/响应头/Banner、状态码、JS文件引用及 AND/OR 组合。自然语言混合逻辑建议使用括号；可直接用条件 JSON 指定分组。
-
-端口越界、IP非法、国家条件矛盾、不支持字段都会被拒绝。规则覆盖有限，同义改写可能返回“暂未支持”；任何未理解条件都阻止整题生成。它表示本版未实现，不代表 FOFA 不支持。
-
-所有处理在本地完成，不调用模型、FOFA API或执行扫描。暂缓联网资料提取、图标哈希、跨平台转换、查询修复、证书、云产品分类和复杂自然语言推理。冲突校验覆盖已实现的明确矛盾，不能证明所有查询都有真实匹配资产。
-
-## 功能检查
+打开 [本地页面](http://127.0.0.1:8765)。加载100道原题后，“导出比赛答卷”使用与命令行相同的校验和封装。单题结果可以查看和复制，但不能作为本包完整答卷导出。服务仅监听本机，不执行资产扫描。
 
 ```sh
 go test ./...
+go build -o bin/fofa-query-agent .
 ```
 
-包含正常转换、AND/OR组合、非法输入、冲突、不支持字段、无法观测的意图及网页接口。未做100题正确率验收，也未执行真实FOFA搜索。
+检查覆盖正常转换、拒绝转换、条件组合、条件树往返序列化、整包导出及缺题/重复/未知题拦截。无需启动外部服务。
 
-## 题目与资料
+## 文件
 
-- [100道原题](fixtures/questions.json)
-- [当前输出约束](docs/mvp-output.schema.json)
-- [T1完整目标和验收集](docs/t1/contract.md)、[T2字段资料](docs/t2/README.md)：保留题意和后续扩展参考；其中的目标覆盖率不代表当前MVP成绩。
+- [100道原题](fixtures/questions.json)、[答案模板](fixtures/answer-template.json)、[参赛包信息](fixtures/package.json)
+- [比赛提交约束](docs/contest-rules.md)、[提交格式 Schema](docs/submission.schema.json)
+- [FOFA字段资料](docs/t2/README.md)
 
-批量输出写入本地 `outputs/`，不上传仓库。
+`docs/t1/` 与旧 `docs/mvp-output.schema.json` 保留开发阶段资料；其中的内部状态和调试格式不属于比赛提交协议。本 README 与比赛提交约束是当前交付说明。

@@ -19,12 +19,12 @@
 <div class="row"><button id="example">填入示例</button><button id="load-all">加载 100 道原题</button><label class="file" for="file" style="margin:0">导入文件</label><input type="file" id="file" accept=".json,.txt,application/json" hidden></div>
 <button id="run" class="primary">生成查询</button><div id="error" class="error-message" role="alert" hidden></div>
 <p class="hint">仅在本机处理，不向外部模型发送题目。查询生成后不会自动访问目标资产。</p>
-<div class="scope"><strong>本版支持</strong><div class="chips"><span class="chip">IP / 网段</span><span class="chip">端口 / 协议</span><span class="chip">域名 / 国家</span><span class="chip">标题 / 正文 / 响应头</span><span class="chip">参数校验</span></div><p class="hint">联网取证、图标计算、跨平台转换、证书及复杂条件暂未支持，会保留题目并明确标记。</p></div>
+<div class="scope"><strong>本版支持</strong><div class="chips"><span class="chip">IP / 网段</span><span class="chip">端口 / 协议</span><span class="chip">域名 / 国家</span><span class="chip">标题 / 正文 / 响应头</span><span class="chip">参数校验</span></div><p class="hint">本包已补充逐题审阅的条件树；其他输入使用基础规则。比赛答卷必须包含本包全部100题，选手：张致远。</p></div>
 </div></section>
-<section class="panel" aria-live="polite"><div class="top"><h2>答题结果</h2><button id="download" disabled>导出 JSON</button></div>
+<section class="panel" aria-live="polite"><div class="top"><h2>答题结果</h2><button id="download" disabled>导出比赛答卷</button></div>
 <div id="empty" class="empty"><div class="symbol">⌘</div><strong>查询会显示在这里</strong><p>每道题单独处理，未支持的题目也会保留。</p></div>
 <div id="summary" class="summary" hidden></div><div id="list"></div>
-</section></div><div class="footer">FOFA Query Assistant · 0.3　/　本版覆盖基础流程，完整题集能力逐步补齐。</div>
+</section></div><div class="footer">FOFA Query Assistant · 0.4　/　本版覆盖基础流程，完整题集能力逐步补齐。</div>
 </main>
 <script>
 const $=id=>document.getElementById(id);let mode='single',results=[];const drafts={single:$('input').value,batch:''};
@@ -38,5 +38,5 @@ $('example').onclick=()=>{setMode('single');$('input').value='搜索 SSH 协议�
 $('load-all').onclick=async()=>{try{const response=await fetch('/api/examples');if(!response.ok)throw Error('原题文件读取失败。');const items=await response.json();setMode('batch');$('input').value=JSON.stringify(items,null,2);}catch(e){fail(e.message);}};
 $('file').onchange=async()=>{const f=$('file').files[0];if(!f)return;try{if(f.size>2000000)throw Error('文件超过 2 MB。');const text=(await f.text()).replace(/^\uFEFF/,'');JSON.parse(text);setMode('batch');$('input').value=text;}catch(e){fail('文件读取失败：'+e.message);}$('file').value='';};
 $('run').onclick=async()=>{clearResults();let data;try{const text=$('input').value.trim();if(!text)throw Error('请先输入题目。');data=mode==='single'?[{题号:'Q001',自然语言输入:text}]:JSON.parse(text);}catch(e){fail(e.message);return;}$('run').disabled=true;$('run').textContent='正在生成…';try{const response=await fetch('/api/answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const body=await response.json();if(!response.ok)throw Error(body.error||'处理失败。');display(body.results);}catch(e){fail(e.message);}finally{$('run').disabled=false;$('run').textContent='生成查询';}};
-$('download').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(results,null,2)],{type:'application/json;charset=utf-8'}));const a=el('a');a.href=url;a.download='fofa-answers.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('download').onclick=async()=>{try{const response=await fetch('/api/submission',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(results.map(x=>({题号:x.题号,自然语言输入:x.自然语言输入})))});const body=await response.json();if(!response.ok)throw Error(body.error||'导出失败');const url=URL.createObjectURL(new Blob([JSON.stringify(body,null,2)],{type:'application/json;charset=utf-8'}));const a=el('a');a.href=url;a.download='答案.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(e){fail(e.message);}};
 </script></body></html>

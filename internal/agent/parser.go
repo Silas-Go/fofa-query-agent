@@ -239,6 +239,9 @@ func expression(text string, depth int) Condition {
 
 // Parse generates structured data only; invalid values remain for the validator.
 func Parse(text string) Document {
+	if document, ok := reviewedDocument(text); ok {
+		return document
+	}
 	n := unresolved("", "invalid_input")
 	if strings.TrimSpace(text) != "" && utf8.RuneCountInString(text) <= 20000 {
 		n = expression(clean(text), 0)

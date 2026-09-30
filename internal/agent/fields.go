@@ -1,10 +1,11 @@
 package agent
 
 type fieldRule struct {
-	Kind      string
-	Operators map[string]string
-	Min, Max  int64
-	Values    map[string]bool
+	Kind       string
+	Operators  map[string]string
+	Min, Max   int64
+	Values     map[string]bool
+	AllowEmpty bool
 }
 
 func values(items ...string) map[string]bool {
@@ -44,5 +45,35 @@ func makeFields() map[string]fieldRule {
 		}
 		f[name] = fieldRule{Kind: "text", Operators: ops}
 	}
+	for _, name := range []string{"region", "city", "server", "app", "product", "product.version", "category", "cloud_name", "cert", "cert.subject.cn", "cert.subject.org", "cert.issuer.cn", "cert.issuer.org", "cert.domain", "cname_domain", "tls.version", "tls.ja3s", "jarm", "cert.sn", "fid", "icon_hash", "header_hash", "body_hash"} {
+		f[name] = fieldRule{Kind: "text", Operators: map[string]string{"contains": "=", "not_contains": "!=", "eq": "=="}}
+	}
+	f["app"] = fieldRule{Kind: "text", Operators: map[string]string{"contains": "="}}
+	for _, name := range []string{"host", "domain", "title", "server", "cloud_name", "cert.subject.cn", "cert.domain"} {
+		rule := f[name]
+		rule.Operators["wildcard"] = "*="
+		f[name] = rule
+	}
+	for _, name := range []string{"title", "banner", "fid", "icon_hash", "header_hash", "body_hash"} {
+		rule := f[name]
+		rule.AllowEmpty = true
+		rule.Operators["empty"] = "=="
+		rule.Operators["not_empty"] = "!="
+		f[name] = rule
+	}
+	for _, name := range []string{"is_cloud", "is_fraud", "is_honeypot", "cert.is_equal", "cert.is_valid", "cert.is_match", "cert.is_expired"} {
+		f[name] = fieldRule{Kind: "boolean", Operators: map[string]string{"eq": "="}}
+	}
+	for _, name := range []string{"after", "before", "cert.not_after.after", "cert.not_after.before"} {
+		f[name] = fieldRule{Kind: "date", Operators: map[string]string{"eq": "="}}
+	}
+	rule := f["country"]
+	rule.Values["HK"] = true
+	rule.Values["MO"] = true
+	rule.Values["TW"] = true
+	f["country"] = rule
+	rule = f["protocol"]
+	rule.Values["socks5"] = true
+	f["protocol"] = rule
 	return f
 }

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FOFA本参赛包答案",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["选手名称", "参赛包编号", "答案"],
+  "properties": {
+    "选手名称": {"type": "string", "minLength": 1},
+    "参赛包编号": {"const": "pkg-08e82c8d"},
+    "答案": {
+      "type": "array", "minItems": 100, "maxItems": 100,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["题号", "查询语句"],
+        "properties": {
+          "题号": {"type": "string", "pattern": "^M[0-9]{3}-S[0-9]{3}$"},
+          "查询语句": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "$comment": "题号集合与重复检查由Go提交校验器完成；Schema不证明Query语义正确。"
+}

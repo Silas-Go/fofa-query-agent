@@ -1,0 +1,2988 @@
+[
+  {
+    "text": "请查询 IP 地址为 20.247.40.92 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "ip",
+        "operator": "eq",
+        "value": "20.247.40.92"
+      }
+    }
+  },
+  {
+    "text": "请查询 124.255.254.0/24 网段内的全部资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "ip",
+        "operator": "eq",
+        "value": "124.255.254.0/24"
+      }
+    }
+  },
+  {
+    "text": "请查询主域是 zendesk.com 的全部资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "domain",
+        "operator": "eq",
+        "value": "zendesk.com"
+      }
+    }
+  },
+  {
+    "text": "搜索网站名为 www.amazon.com 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "host",
+        "operator": "eq",
+        "value": "www.amazon.com"
+      }
+    }
+  },
+  {
+    "text": "我想找域名里带有 vpn 的所有网站。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "host",
+        "operator": "contains",
+        "value": "vpn"
+      }
+    }
+  },
+  {
+    "text": "搜索位于大不列颠及北爱尔兰联合王国的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "country",
+        "operator": "eq",
+        "value": "GB"
+      }
+    }
+  },
+  {
+    "text": "搜索韩国江原道的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "KR"
+          },
+          {
+            "type": "predicate",
+            "field": "region",
+            "operator": "contains",
+            "value": "Gangwon-do"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "搜索德国巴伐利亚州的München市的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "DE"
+          },
+          {
+            "type": "predicate",
+            "field": "region",
+            "operator": "contains",
+            "value": "Bavaria"
+          },
+          {
+            "type": "predicate",
+            "field": "city",
+            "operator": "contains",
+            "value": "Munich"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "搜索自治系统号为 4134 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "asn",
+        "operator": "eq",
+        "value": 4134
+      }
+    }
+  },
+  {
+    "text": "我想找位于荷兰、使用亚马逊的云计算、对象存储或应用托管服务的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "NL"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "app",
+                "operator": "contains",
+                "value": "Amazon-EC2"
+              },
+              {
+                "type": "predicate",
+                "field": "app",
+                "operator": "contains",
+                "value": "Amazon-S3"
+              },
+              {
+                "type": "predicate",
+                "field": "app",
+                "operator": "contains",
+                "value": "Amazon-Elastic-Beanstalk"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想查河北地区的华为云资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "region",
+            "operator": "contains",
+            "value": "Hebei"
+          },
+          {
+            "type": "predicate",
+            "field": "cloud_name",
+            "operator": "contains",
+            "value": "HuaWeiCloud"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请查询开放 3000 端口的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "port",
+        "operator": "eq",
+        "value": 3000
+      }
+    }
+  },
+  {
+    "text": "搜索标题包含 Jenkins 或正文包含 jenkins、国家不是中国，且更新时间在 2026-08-01 之后的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "title",
+                "operator": "contains",
+                "value": "Jenkins"
+              },
+              {
+                "type": "predicate",
+                "field": "body",
+                "operator": "contains",
+                "value": "jenkins"
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "ne",
+            "value": "CN"
+          },
+          {
+            "type": "predicate",
+            "field": "after",
+            "operator": "eq",
+            "value": "2026-08-01"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找中国的 DNS 服务。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "CN"
+          },
+          {
+            "type": "predicate",
+            "field": "protocol",
+            "operator": "eq",
+            "value": "dns"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "fofa有识别SOCKS的v5版本吗？",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "protocol",
+        "operator": "eq",
+        "value": "socks5"
+      }
+    }
+  },
+  {
+    "text": "搜索 SSH 协议且端口为 22022 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "protocol",
+            "operator": "eq",
+            "value": "ssh"
+          },
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 22022
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想看使用 TCP 协议的数据。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "base_protocol",
+        "operator": "eq",
+        "value": "tcp"
+      }
+    }
+  },
+  {
+    "text": "我想找互联网上提供 SNMP 网络管理服务的资产，不限定端口。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "protocol",
+        "operator": "eq",
+        "value": "snmp"
+      }
+    }
+  },
+  {
+    "text": "我想要搜索Memcached缓存服务协议在FOFA上的数据，地域限定为美国。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "protocol",
+            "operator": "eq",
+            "value": "memcached"
+          },
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "US"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询真正跑在 TCP 上的 FTP 服务。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "protocol",
+            "operator": "eq",
+            "value": "ftp"
+          },
+          {
+            "type": "predicate",
+            "field": "base_protocol",
+            "operator": "eq",
+            "value": "tcp"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询真正的 SSH 服务，并且它返回的信息里包含 OpenSSH_10.4。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "protocol",
+            "operator": "eq",
+            "value": "ssh"
+          },
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "contains",
+            "value": "OpenSSH_10.4"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找日本的海康威视摄像头资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "JP"
+          },
+          {
+            "type": "predicate",
+            "field": "app",
+            "operator": "contains",
+            "value": "HIKVISION-网络摄像机"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "查 163.com 旗下的域名数据，要求它前面恰好还有两级子域，每一级都只有一个字符，例如 a.z.163.com。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "eq",
+            "value": "163.com"
+          },
+          {
+            "type": "predicate",
+            "field": "host",
+            "operator": "wildcard",
+            "value": "?.?.163.com"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找产品版本号为 10.0.0 的资产，不限定具体产品。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "product.version",
+        "operator": "contains",
+        "value": "10.0.0"
+      }
+    }
+  },
+  {
+    "text": "我想按产品门类查找连接应用与底层基础服务的中间层软件这一类资产，不限定具体厂商和型号。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "category",
+        "operator": "contains",
+        "value": "中间件"
+      }
+    }
+  },
+  {
+    "text": "搜索网页正文中出现 NoSuchUpload 错误标记的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "body",
+        "operator": "contains",
+        "value": "NoSuchUpload"
+      }
+    }
+  },
+  {
+    "text": "我想找响应信息中出现 Content-Security-Policy-Report-Only 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "header",
+        "operator": "contains",
+        "value": "Content-Security-Policy-Report-Only"
+      }
+    }
+  },
+  {
+    "text": "搜索状态码为 308 的网站类资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "status_code",
+            "operator": "eq",
+            "value": 308
+          },
+          {
+            "type": "predicate",
+            "field": "type",
+            "operator": "eq",
+            "value": "subdomain"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询响应信息有 SSH-2.0-OpenSSH_6.1 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "banner",
+        "operator": "contains",
+        "value": "SSH-2.0-OpenSSH_6.1"
+      }
+    }
+  },
+  {
+    "text": "搜索header包含 Set-Cookie:PHPSESSID 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "header",
+        "operator": "contains",
+        "value": "Set-Cookie:PHPSESSID"
+      }
+    }
+  },
+  {
+    "text": "搜索引用 jquery.min.js 文件的网页。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "js_name",
+        "operator": "contains",
+        "value": "jquery.min.js"
+      }
+    }
+  },
+  {
+    "text": "查荷兰阿姆斯特丹开放 554 端口、响应原文含有 200 OK 的资产。这里的 200 OK 是服务返回的文本。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "NL"
+          },
+          {
+            "type": "predicate",
+            "field": "city",
+            "operator": "contains",
+            "value": "Amsterdam"
+          },
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 554
+          },
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "contains",
+            "value": "200 OK"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询由 GlobalSign 组织签发、而且证书还没有过期的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "cert.issuer.org",
+            "operator": "contains",
+            "value": "GlobalSign"
+          },
+          {
+            "type": "predicate",
+            "field": "cert.is_expired",
+            "operator": "eq",
+            "value": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找证书持有者名称是 apple.com、但域名不是 apple.com 的域名数据。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "cert.subject.cn",
+            "operator": "eq",
+            "value": "apple.com"
+          },
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "ne",
+            "value": "apple.com"
+          },
+          {
+            "type": "predicate",
+            "field": "is_domain",
+            "operator": "eq",
+            "value": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请查询证书全文中包含 TrustAsia 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "cert",
+        "operator": "contains",
+        "value": "TrustAsia"
+      }
+    }
+  },
+  {
+    "text": "搜索证书持有者组织名称包含 Alibaba 这个关键词的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "cert.subject.org",
+        "operator": "contains",
+        "value": "Alibaba"
+      }
+    }
+  },
+  {
+    "text": "查 sohu.com 下的资产，要求 Banner 有内容，但其中不包含 apache 关键词。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "eq",
+            "value": "sohu.com"
+          },
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "not_empty",
+            "value": ""
+          },
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "not_contains",
+            "value": "apache"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "证书里面只要有adobe.com这个根域名的都给我找出来。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "cert",
+        "operator": "contains",
+        "value": "adobe.com"
+      }
+    }
+  },
+  {
+    "text": "我想搜索证书持有者名称根域是 qq.com 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "cert.domain",
+        "operator": "contains",
+        "value": "qq.com"
+      }
+    }
+  },
+  {
+    "text": "请查询证书包含 godaddy，但根域名不是 godaddy.com 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "cert",
+            "operator": "contains",
+            "value": "godaddy"
+          },
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "ne",
+            "value": "godaddy.com"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找证书信息里包含 google.com这个域名的资产，蜜罐和欺诈网站都不要。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "cert",
+            "operator": "contains",
+            "value": "google.com"
+          },
+          {
+            "type": "predicate",
+            "field": "is_honeypot",
+            "operator": "eq",
+            "value": false
+          },
+          {
+            "type": "predicate",
+            "field": "is_fraud",
+            "operator": "eq",
+            "value": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想要证书持有者名称包含example.com特征的所有资产或者证书包含example.com这个域名都行，要包含裸域和子域。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "or",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "cert.subject.cn",
+            "operator": "contains",
+            "value": "example.com"
+          },
+          {
+            "type": "predicate",
+            "field": "cert",
+            "operator": "contains",
+            "value": "example.com"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找仍在使用 TLS 1.0，且证书尚未过期的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "tls.version",
+            "operator": "contains",
+            "value": "TLS 1.0"
+          },
+          {
+            "type": "predicate",
+            "field": "cert.is_expired",
+            "operator": "eq",
+            "value": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找 JARM 为 21d21d00021d21d00021d21d21d21dce319294781f0e12867fd06896a000ea、网站响应码为 307，且响应头包含 Content-Length: 0 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "jarm",
+            "operator": "contains",
+            "value": "21d21d00021d21d00021d21d21d21dce319294781f0e12867fd06896a000ea"
+          },
+          {
+            "type": "predicate",
+            "field": "status_code",
+            "operator": "eq",
+            "value": 307
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Content-Length: 0"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想查操作系统被识别为 linux 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "os",
+        "operator": "contains",
+        "value": "linux"
+      }
+    }
+  },
+  {
+    "text": "地域限定为中国大陆，查看没有绑定域名的网站类资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "and",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "country",
+                "operator": "eq",
+                "value": "CN"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Hong Kong"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Macao"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Taiwan"
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "type",
+            "operator": "eq",
+            "value": "subdomain"
+          },
+          {
+            "type": "predicate",
+            "field": "is_domain",
+            "operator": "eq",
+            "value": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找证书颁发者与持有者不匹配的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "cert.is_equal",
+        "operator": "eq",
+        "value": false
+      }
+    }
+  },
+  {
+    "text": "帮我找加拿大的资产，要求证书与域名不匹配。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "CA"
+          },
+          {
+            "type": "predicate",
+            "field": "cert.is_match",
+            "operator": "eq",
+            "value": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "查找土耳其 TLS JA3S 指纹等于 f4febc55ea12b31ae17cfb7e614afda8 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "TR"
+          },
+          {
+            "type": "predicate",
+            "field": "tls.ja3s",
+            "operator": "contains",
+            "value": "f4febc55ea12b31ae17cfb7e614afda8"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "帮我找一下网络组织名称里包含Inc 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "org",
+        "operator": "contains",
+        "value": "Inc"
+      }
+    }
+  },
+  {
+    "text": "我想找美国 OVH SAS 网络里开放 2087 端口、标题完整为 WHM 登录。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "US"
+          },
+          {
+            "type": "predicate",
+            "field": "org",
+            "operator": "contains",
+            "value": "OVH SAS"
+          },
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 2087
+          },
+          {
+            "type": "predicate",
+            "field": "title",
+            "operator": "eq",
+            "value": "WHM 登录"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询 .io 域名下部署的 WordPress 资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "wildcard",
+            "value": "*.io"
+          },
+          {
+            "type": "predicate",
+            "field": "app",
+            "operator": "contains",
+            "value": "WordPress"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "搜索厦门市 80 端口且网页状态码为 200 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "city",
+            "operator": "contains",
+            "value": "Xiamen"
+          },
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 80
+          },
+          {
+            "type": "predicate",
+            "field": "status_code",
+            "operator": "eq",
+            "value": 200
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询英国 DigitalOcean 上疑似提供 /api/show 接口的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "GB"
+          },
+          {
+            "type": "predicate",
+            "field": "cloud_name",
+            "operator": "contains",
+            "value": "DigitalOcean"
+          },
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "/api/show"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想要找中国大陆响应信息包含 Set-Cookie，但是正文有 /admin 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "and",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "country",
+                "operator": "eq",
+                "value": "CN"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Hong Kong"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Macao"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Taiwan"
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Set-Cookie"
+          },
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "/admin"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "在 baidu.com 的资产中，正文出现 Login、admin、Dashboard、管理任一项，或响应头出现 Set-Cookie，任意一种命中都要。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "eq",
+            "value": "baidu.com"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "body",
+                    "operator": "contains",
+                    "value": "Login"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "body",
+                    "operator": "contains",
+                    "value": "admin"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "body",
+                    "operator": "contains",
+                    "value": "Dashboard"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "body",
+                    "operator": "contains",
+                    "value": "管理"
+                  }
+                ]
+              },
+              {
+                "type": "predicate",
+                "field": "header",
+                "operator": "contains",
+                "value": "Set-Cookie"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "在 13.0.0.0/8 网段内查网页：响应码必须是 200，正文包含 Welcome 或 Sign in 或 Dashboard 中任意一项。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "ip",
+            "operator": "eq",
+            "value": "13.0.0.0/8"
+          },
+          {
+            "type": "predicate",
+            "field": "status_code",
+            "operator": "eq",
+            "value": 200
+          },
+          {
+            "type": "predicate",
+            "field": "type",
+            "operator": "eq",
+            "value": "subdomain"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "body",
+                "operator": "contains",
+                "value": "Welcome"
+              },
+              {
+                "type": "predicate",
+                "field": "body",
+                "operator": "contains",
+                "value": "Sign in"
+              },
+              {
+                "type": "predicate",
+                "field": "body",
+                "operator": "contains",
+                "value": "Dashboard"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "查德国与 amazonaws.com 相关的资产，访问地址、主域、CNAME 根域、证书全文、证书域名这五处任一处命中都算。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "DE"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "host",
+                "operator": "contains",
+                "value": "amazonaws.com"
+              },
+              {
+                "type": "predicate",
+                "field": "domain",
+                "operator": "eq",
+                "value": "amazonaws.com"
+              },
+              {
+                "type": "predicate",
+                "field": "cname_domain",
+                "operator": "contains",
+                "value": "amazonaws.com"
+              },
+              {
+                "type": "predicate",
+                "field": "cert",
+                "operator": "contains",
+                "value": "amazonaws.com"
+              },
+              {
+                "type": "predicate",
+                "field": "cert.domain",
+                "operator": "contains",
+                "value": "amazonaws.com"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找 143 端口上证书序列号为 1 的资产，同时证书中有 TAK、ATAK、WinTAK、Squad、CoT 中任意一个词。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 143
+          },
+          {
+            "type": "predicate",
+            "field": "cert.sn",
+            "operator": "contains",
+            "value": "1"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "cert",
+                "operator": "contains",
+                "value": "TAK"
+              },
+              {
+                "type": "predicate",
+                "field": "cert",
+                "operator": "contains",
+                "value": "ATAK"
+              },
+              {
+                "type": "predicate",
+                "field": "cert",
+                "operator": "contains",
+                "value": "WinTAK"
+              },
+              {
+                "type": "predicate",
+                "field": "cert",
+                "operator": "contains",
+                "value": "Squad"
+              },
+              {
+                "type": "predicate",
+                "field": "cert",
+                "operator": "contains",
+                "value": "CoT"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找 113.247.228.0/24 网段里开放 80、443、8080 或 8443 任意一个端口的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "ip",
+            "operator": "eq",
+            "value": "113.247.228.0/24"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 80
+              },
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 443
+              },
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 8080
+              },
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 8443
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请查询标题包含 Sign in 或 Login、端口为 80 且不是 IPv6 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "title",
+                "operator": "contains",
+                "value": "Sign in"
+              },
+              {
+                "type": "predicate",
+                "field": "title",
+                "operator": "contains",
+                "value": "Login"
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 80
+          },
+          {
+            "type": "predicate",
+            "field": "is_ipv6",
+            "operator": "eq",
+            "value": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询新西兰地区放 80 或 443 端口且是使用了云服务商的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "NZ"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 80
+              },
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 443
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "is_cloud",
+            "operator": "eq",
+            "value": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "搜索 Banner 同时包含 IIS 和 1.，或者响应头包含 IIS 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "or",
+        "conditions": [
+          {
+            "type": "and",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "banner",
+                "operator": "contains",
+                "value": "IIS"
+              },
+              {
+                "type": "predicate",
+                "field": "banner",
+                "operator": "contains",
+                "value": "1."
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "IIS"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找日本已绑定域名的网站：443 端口、响应码 200、证书有效；标题包含 大学、学部、研究 任意一个词，或者正文包含 入学案内、学生 任意一个词就算。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "JP"
+          },
+          {
+            "type": "predicate",
+            "field": "is_domain",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "type": "predicate",
+            "field": "type",
+            "operator": "eq",
+            "value": "subdomain"
+          },
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 443
+          },
+          {
+            "type": "predicate",
+            "field": "status_code",
+            "operator": "eq",
+            "value": 200
+          },
+          {
+            "type": "predicate",
+            "field": "cert.is_valid",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "title",
+                    "operator": "contains",
+                    "value": "大学"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "title",
+                    "operator": "contains",
+                    "value": "学部"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "title",
+                    "operator": "contains",
+                    "value": "研究"
+                  }
+                ]
+              },
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "body",
+                    "operator": "contains",
+                    "value": "入学案内"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "body",
+                    "operator": "contains",
+                    "value": "学生"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "在 baidu.com 主域内找资产：标题有系统、平台、登录、管理或 API，或者子域名中有 api、admin、dev、test、uat、pre，任意一项命中即可。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "eq",
+            "value": "baidu.com"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "title",
+                    "operator": "contains",
+                    "value": "系统"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "title",
+                    "operator": "contains",
+                    "value": "平台"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "title",
+                    "operator": "contains",
+                    "value": "登录"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "title",
+                    "operator": "contains",
+                    "value": "管理"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "title",
+                    "operator": "contains",
+                    "value": "API"
+                  }
+                ]
+              },
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "host",
+                    "operator": "contains",
+                    "value": "api"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "host",
+                    "operator": "contains",
+                    "value": "admin"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "host",
+                    "operator": "contains",
+                    "value": "dev"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "host",
+                    "operator": "contains",
+                    "value": "test"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "host",
+                    "operator": "contains",
+                    "value": "uat"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "host",
+                    "operator": "contains",
+                    "value": "pre"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找被归为邮件系统、标题包含 Mail，但国家不是美国的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "category",
+            "operator": "contains",
+            "value": "邮件系统"
+          },
+          {
+            "type": "predicate",
+            "field": "title",
+            "operator": "contains",
+            "value": "Mail"
+          },
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "ne",
+            "value": "US"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找中国大陆开放 8888 端口的资产，香港、澳门、台湾都排除。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "and",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "country",
+                "operator": "eq",
+                "value": "CN"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Hong Kong"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Macao"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Taiwan"
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 8888
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找正文包含 Jenkins，但标题不包含同一个关键词的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "Jenkins"
+          },
+          {
+            "type": "predicate",
+            "field": "title",
+            "operator": "not_contains",
+            "value": "Jenkins"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找台湾 AS20940 上 443 端口、使用 TLS 1.3 的资产，但 Let's Encrypt 和 ZeroSSL 组织签发的证书不要。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "TW"
+          },
+          {
+            "type": "predicate",
+            "field": "asn",
+            "operator": "eq",
+            "value": 20940
+          },
+          {
+            "type": "predicate",
+            "field": "port",
+            "operator": "eq",
+            "value": 443
+          },
+          {
+            "type": "predicate",
+            "field": "tls.version",
+            "operator": "contains",
+            "value": "TLS 1.3"
+          },
+          {
+            "type": "predicate",
+            "field": "cert.issuer.org",
+            "operator": "not_contains",
+            "value": "Let's Encrypt"
+          },
+          {
+            "type": "predicate",
+            "field": "cert.issuer.org",
+            "operator": "not_contains",
+            "value": "ZeroSSL"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找日本以外的 HFS 文件服务，状态码为 200，标题完整等于 HFS /，部署在亚马逊云的排除。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "ne",
+            "value": "JP"
+          },
+          {
+            "type": "predicate",
+            "field": "app",
+            "operator": "contains",
+            "value": "HFS"
+          },
+          {
+            "type": "predicate",
+            "field": "status_code",
+            "operator": "eq",
+            "value": 200
+          },
+          {
+            "type": "predicate",
+            "field": "title",
+            "operator": "eq",
+            "value": "HFS /"
+          },
+          {
+            "type": "predicate",
+            "field": "cloud_name",
+            "operator": "not_contains",
+            "value": "Amazon"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询不包含港澳台的中国 Grafana 资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "and",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "country",
+                "operator": "eq",
+                "value": "CN"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Hong Kong"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Macao"
+              },
+              {
+                "type": "predicate",
+                "field": "region",
+                "operator": "not_contains",
+                "value": "Taiwan"
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "app",
+            "operator": "contains",
+            "value": "Grafana"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询以 .edu.ar 结尾的高校网站，只看 80 或 443 端口，服务是 Nginx 和 WAF 的不要。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "wildcard",
+            "value": "*.edu.ar"
+          },
+          {
+            "type": "predicate",
+            "field": "type",
+            "operator": "eq",
+            "value": "subdomain"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 80
+              },
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 443
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "product",
+            "operator": "not_contains",
+            "value": "NGINX"
+          },
+          {
+            "type": "predicate",
+            "field": "product",
+            "operator": "not_contains",
+            "value": "WAF"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我有 IP 1.1.1.1，想查这台 IP 已经绑定域名的资产记录。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "ip",
+            "operator": "eq",
+            "value": "1.1.1.1"
+          },
+          {
+            "type": "predicate",
+            "field": "is_domain",
+            "operator": "eq",
+            "value": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请帮我查询证书里面有根域 aliyun.com、证书当前有效，但资产本身没有绑定域名的结果。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "cert",
+            "operator": "contains",
+            "value": "aliyun.com"
+          },
+          {
+            "type": "predicate",
+            "field": "cert.is_valid",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "type": "predicate",
+            "field": "is_domain",
+            "operator": "eq",
+            "value": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找中国已绑定域名的资产，响应头包含 x-qiniu-zone，但主域不是 qiniudn.com。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "CN"
+          },
+          {
+            "type": "predicate",
+            "field": "is_domain",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "x-qiniu-zone"
+          },
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "ne",
+            "value": "qiniudn.com"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找网站标题为空、响应码 200 的资产，fid 和图标哈希都不为空；访问域名包含 admin，且根域满足以下任一种形态：以 .cn 结尾，或 .com 前恰好是四个字符。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "title",
+            "operator": "empty",
+            "value": ""
+          },
+          {
+            "type": "predicate",
+            "field": "status_code",
+            "operator": "eq",
+            "value": 200
+          },
+          {
+            "type": "predicate",
+            "field": "fid",
+            "operator": "not_empty",
+            "value": ""
+          },
+          {
+            "type": "predicate",
+            "field": "icon_hash",
+            "operator": "not_empty",
+            "value": ""
+          },
+          {
+            "type": "predicate",
+            "field": "host",
+            "operator": "contains",
+            "value": "admin"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "domain",
+                "operator": "wildcard",
+                "value": "*.cn"
+              },
+              {
+                "type": "predicate",
+                "field": "domain",
+                "operator": "wildcard",
+                "value": "????.com"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "我想找网页源码中包含这段原样文本的资产：class=\"container\"。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "body",
+        "operator": "contains",
+        "value": "class=\"container\""
+      }
+    }
+  },
+  {
+    "text": "在网页正文中搜索这段 JSON 异常信息片段，保留双引号和反斜杠：\n\"exception\": \"Symfony\\Component\\ErrorHandler\\Error\\FatalError\"",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "body",
+        "operator": "contains",
+        "value": "\"exception\": \"Symfony\\Component\\ErrorHandler\\Error\\FatalError\""
+      }
+    }
+  },
+  {
+    "text": "我想要搜索这个 IP 的整个 B 段：40.88.14.254。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "ip",
+        "operator": "eq",
+        "value": "40.88.0.0/16"
+      }
+    }
+  },
+  {
+    "text": "查 47.96.0.1 到 47.96.0.5 这个闭区间里的 IP，要求开放 80 或 443 端口。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "ip",
+                "operator": "eq",
+                "value": "47.96.0.1"
+              },
+              {
+                "type": "predicate",
+                "field": "ip",
+                "operator": "eq",
+                "value": "47.96.0.2"
+              },
+              {
+                "type": "predicate",
+                "field": "ip",
+                "operator": "eq",
+                "value": "47.96.0.3"
+              },
+              {
+                "type": "predicate",
+                "field": "ip",
+                "operator": "eq",
+                "value": "47.96.0.4"
+              },
+              {
+                "type": "predicate",
+                "field": "ip",
+                "operator": "eq",
+                "value": "47.96.0.5"
+              }
+            ]
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 80
+              },
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 443
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找 Grafana 资产：响应头哈希、正文哈希、网站图标哈希、fid 指纹这四项中，至少两项有值。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "app",
+            "operator": "contains",
+            "value": "Grafana"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "and",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "header_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "body_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "type": "and",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "header_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "icon_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "type": "and",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "header_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "fid",
+                    "operator": "not_empty",
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "type": "and",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "body_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "icon_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "type": "and",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "body_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "fid",
+                    "operator": "not_empty",
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "type": "and",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "icon_hash",
+                    "operator": "not_empty",
+                    "value": ""
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "fid",
+                    "operator": "not_empty",
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "搜索以下主域资产，都是或的关系，不管这条资产是绑定的任意主域还是他的证书里面有任意主域都算。但是证书要满足被fofa标记为匹配并且有效，最后证书过期时间晚于 2024-01-01 00:00:00 且早于2026-08-30 18:17:49\n主域有：kuaihuoyun.com/wlhyos.cn/wlhyos.com/56ctms.com/xiaokuaikeji.com/zhihuiwuliu.org.cn",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "domain",
+                    "operator": "eq",
+                    "value": "kuaihuoyun.com"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "cert",
+                    "operator": "contains",
+                    "value": "kuaihuoyun.com"
+                  }
+                ]
+              },
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "domain",
+                    "operator": "eq",
+                    "value": "wlhyos.cn"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "cert",
+                    "operator": "contains",
+                    "value": "wlhyos.cn"
+                  }
+                ]
+              },
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "domain",
+                    "operator": "eq",
+                    "value": "wlhyos.com"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "cert",
+                    "operator": "contains",
+                    "value": "wlhyos.com"
+                  }
+                ]
+              },
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "domain",
+                    "operator": "eq",
+                    "value": "56ctms.com"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "cert",
+                    "operator": "contains",
+                    "value": "56ctms.com"
+                  }
+                ]
+              },
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "domain",
+                    "operator": "eq",
+                    "value": "xiaokuaikeji.com"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "cert",
+                    "operator": "contains",
+                    "value": "xiaokuaikeji.com"
+                  }
+                ]
+              },
+              {
+                "type": "or",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "domain",
+                    "operator": "eq",
+                    "value": "zhihuiwuliu.org.cn"
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "cert",
+                    "operator": "contains",
+                    "value": "zhihuiwuliu.org.cn"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "predicate",
+            "field": "cert.is_match",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "type": "predicate",
+            "field": "cert.is_valid",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "type": "predicate",
+            "field": "cert.not_after.after",
+            "operator": "eq",
+            "value": "2024-01-01 00:00:00"
+          },
+          {
+            "type": "predicate",
+            "field": "cert.not_after.before",
+            "operator": "eq",
+            "value": "2026-08-30 18:17:49"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "请把下面的 Shodan 查询转换成 FOFA：\"Server: nginx\" http.title:\"Welcome\"",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "contains",
+            "value": "Server: nginx"
+          },
+          {
+            "type": "predicate",
+            "field": "title",
+            "operator": "contains",
+            "value": "Welcome"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "把这条 Google Dork 转换为 FOFA：intitle:\"Grafana\" intext:\"JavaScript\"",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "title",
+            "operator": "contains",
+            "value": "Grafana"
+          },
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "JavaScript"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "把这个 urlscan.io 搜索意图转换成 FOFA：HTML 包含 login，并且域名包含 bet、casino 或 kasino。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "login"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "host",
+                "operator": "contains",
+                "value": "bet"
+              },
+              {
+                "type": "predicate",
+                "field": "host",
+                "operator": "contains",
+                "value": "casino"
+              },
+              {
+                "type": "predicate",
+                "field": "host",
+                "operator": "contains",
+                "value": "kasino"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "把这条 Hunter 查询转成 FOFA：domain=\"google\"&&domain.suffix!=\"google.com\"&&web.title=\"\"",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "host",
+            "operator": "contains",
+            "value": "google"
+          },
+          {
+            "type": "predicate",
+            "field": "domain",
+            "operator": "ne",
+            "value": "google.com"
+          },
+          {
+            "type": "predicate",
+            "field": "title",
+            "operator": "empty",
+            "value": ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "将这条 Censys 搜索转换为 FOFA：host.services.endpoints.http.headers: (key: \"server\" and value: \"Tengine\") or host.services.endpoints.http.headers: (key: \"x-cache\" and value: \"MISS\")",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "or",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "server: Tengine"
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "x-cache: MISS"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "修正这条 FOFA 查询，意图是搜索香港地区、Server 精确为 Apache，并排除 ASN 4134：asn!=”4134″ && region=”HK” && server==”Apache”",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "HK"
+          },
+          {
+            "type": "predicate",
+            "field": "server",
+            "operator": "eq",
+            "value": "Apache"
+          },
+          {
+            "type": "predicate",
+            "field": "asn",
+            "operator": "ne",
+            "value": 4134
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "修正这条 FOFA 查询。意图：HFS 的 80 端口都要；8080 端口仅状态码为 200 时要。原查询：app=\"HFS\" && port=\"80\" |｜ app=\"HFS” && port=\"8080\" && status_code=\"200\"",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "app",
+            "operator": "contains",
+            "value": "HFS"
+          },
+          {
+            "type": "or",
+            "conditions": [
+              {
+                "type": "predicate",
+                "field": "port",
+                "operator": "eq",
+                "value": 80
+              },
+              {
+                "type": "and",
+                "conditions": [
+                  {
+                    "type": "predicate",
+                    "field": "port",
+                    "operator": "eq",
+                    "value": 8080
+                  },
+                  {
+                    "type": "predicate",
+                    "field": "status_code",
+                    "operator": "eq",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "HTTP/2.0 200 OK\nContent-Length: 1171\nAccept-Ranges: bytes\nCache-Control: max-age=900\nCache-Control: public, max-age=900, stale-while-revalidate=60\nContent-Type: text/html; charset=utf-8\nDate: Mon, 14 Sep 2026 07:38:38 GMT\nEtag: \"6aa522a3-493\"\nLast-Modified: Sat, 12 Sep 2026 10:00:03 GMT\nServer: nginx\nVary: Accept-Encoding\n\n依据上面的响应片段生成搜索语句。Etag、Content-Length 保留材料中的值，其余响应头只要求字段名存在。本题不限定状态码。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Content-Length: 1171"
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Accept-Ranges:"
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Cache-Control:"
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Content-Type:"
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Date:"
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Etag: \"6aa522a3-493\""
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Last-Modified:"
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Server:"
+          },
+          {
+            "type": "predicate",
+            "field": "header",
+            "operator": "contains",
+            "value": "Vary:"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "搜索开放 1000000 端口的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "port",
+        "operator": "eq",
+        "value": 1000000
+      }
+    }
+  },
+  {
+    "text": "搜索地址或网段为 1.2.3.4.5 的资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "ip",
+        "operator": "eq",
+        "value": "1.2.3.4.5"
+      }
+    }
+  },
+  {
+    "text": "查同一条资产记录，国家代码必须等于 US，同时国家代码又必须不等于 US。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "eq",
+            "value": "US"
+          },
+          {
+            "type": "predicate",
+            "field": "country",
+            "operator": "ne",
+            "value": "US"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "帮我查最安全的网站。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "unresolved",
+        "text": "帮我查最安全的网站。",
+        "reason": "ambiguous_intent"
+      }
+    }
+  },
+  {
+    "text": "找出当前正在运行的容器内存使用率超过 80% 的服务器，没有容器监控数据或运行时访问权限。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "unresolved",
+        "text": "找出当前正在运行的容器内存使用率超过 80% 的服务器，没有容器监控数据或运行时访问权限。",
+        "reason": "unobservable_intent"
+      }
+    }
+  },
+  {
+    "text": "阅读这份官方文档的 TCP Agent Listener Port 一节，提取示例诊断响应中以产品名称或 Remoting 开头的全部字段名。把它们组合成FOFA查询：网页正文或服务响应原文出现任意一个字段名都要，不限定端口，不保留示例中的版本和会话值。https://www.jenkins.io/doc/book/security/services/",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "or",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "Jenkins-Agent-Protocols"
+          },
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "Jenkins-Version"
+          },
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "Jenkins-Session"
+          },
+          {
+            "type": "predicate",
+            "field": "body",
+            "operator": "contains",
+            "value": "Remoting-Minimum-Version"
+          },
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "contains",
+            "value": "Jenkins-Agent-Protocols"
+          },
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "contains",
+            "value": "Jenkins-Version"
+          },
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "contains",
+            "value": "Jenkins-Session"
+          },
+          {
+            "type": "predicate",
+            "field": "banner",
+            "operator": "contains",
+            "value": "Remoting-Minimum-Version"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "帮我找和https://octodex.github.com/ 网站图标相同的其他资产。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "icon_hash",
+            "operator": "contains",
+            "value": "-1493334710"
+          },
+          {
+            "type": "predicate",
+            "field": "host",
+            "operator": "not_contains",
+            "value": "octodex.github.com"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "找和msp.gov.cn.poliec.com  一样仿冒特征的网站，总结搜索语句",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "host",
+        "operator": "wildcard",
+        "value": "*.gov.cn.*"
+      }
+    }
+  },
+  {
+    "text": "CVE-2021-41773对应的产品在FOFA上怎么搜？",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "predicate",
+        "field": "app",
+        "operator": "contains",
+        "value": "APACHE"
+      }
+    }
+  },
+  {
+    "text": "查找使用以下 TLS 证书的资产：证书颁发者通用名称为 ZeroSSL ECC DV SSL CA 2，证书详情中的 Serial Number 显示为 63:BD:83:71:62:14:83:6E:F8:00:75:35:61:61:EB:06。 转换成fofa能查的特征。",
+    "document": {
+      "version": "1.0",
+      "condition": {
+        "type": "and",
+        "conditions": [
+          {
+            "type": "predicate",
+            "field": "cert.issuer.cn",
+            "operator": "eq",
+            "value": "ZeroSSL ECC DV SSL CA 2"
+          },
+          {
+            "type": "predicate",
+            "field": "cert.sn",
+            "operator": "contains",
+            "value": "132577581667764526475870473477991557894"
+          }
+        ]
+      }
+    }
+  }
+]

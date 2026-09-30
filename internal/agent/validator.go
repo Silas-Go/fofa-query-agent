@@ -7,6 +7,7 @@ import (
 	"net/netip"
 	"sort"
 	"strings"
+	"time"
 	"unicode/utf8"
 )
 
@@ -73,6 +74,15 @@ func (c *checker) visit(n Condition, path string, depth int) Condition {
 		c.add("UNSUPPORTED_OPERATOR", "字段不支持该操作："+n.Field+" / "+n.Operator, path+".operator", "暂未支持")
 		return n
 	}
+	if n.Operator == "empty" || n.Operator == "not_empty" {
+		if value, ok := n.Value.(string); !ok || value != "" {
+			c.add("INVALID_VALUE", "空值操作必须使用空字符串。", path+".value", "输入非法")
+		}
+		return n
+	}
+	if n.Operator == "wildcard" && rule.Kind == "domain" {
+		rule.Kind = "text"
+	}
 	value, err := normalizeValue(n.Value, rule)
 	if err != nil {
 		c.add("INVALID_VALUE", n.Field+"："+err.Error(), path+".value", "输入非法")
@@ -111,10 +121,16 @@ func normalizeValue(value any, rule fieldRule) (any, error) {
 		return nil, fmt.Errorf("必须为true或false")
 	}
 	s, ok := value.(string)
-	if !ok || s == "" || utf8.RuneCountInString(s) > 20000 {
+	if !ok || (s == "" && !rule.AllowEmpty) || utf8.RuneCountInString(s) > 20000 {
 		return nil, fmt.Errorf("必须是非空字符串，且不超过20000字符")
 	}
 	switch rule.Kind {
+	case "date":
+		if _, err := time.Parse("2006-01-02", s); err != nil {
+			if _, err = time.Parse("2006-01-02 15:04:05", s); err != nil {
+				return nil, fmt.Errorf("日期格式错误")
+			}
+		}
 	case "ip":
 		if strings.Contains(s, "/") {
 			p, err := netip.ParsePrefix(s)
@@ -234,6 +250,10 @@ func branchConflict(leaves []Condition) bool {
 				required[p.Value] = true
 			case "not_contains":
 				forbidden[p.Value] = true
+			case "empty":
+				eq[""] = true
+			case "not_empty":
+				ne[""] = true
 			}
 		}
 		if len(eq) > 1 {

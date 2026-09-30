@@ -6,15 +6,16 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"unicode/utf8"
 )
 
-const Version = "0.3.0"
+const Version = "0.4.0"
 
 type Condition struct {
 	Type       string      `json:"type"`
 	Field      string      `json:"field,omitempty"`
 	Operator   string      `json:"operator,omitempty"`
-	Value      any         `json:"value,omitempty"`
+	Value      any         `json:"value"`
 	Conditions []Condition `json:"conditions,omitempty"`
 	Text       string      `json:"text,omitempty"`
 	Reason     string      `json:"reason,omitempty"`
@@ -67,6 +68,9 @@ type Answer struct {
 // DecodeJSON rejects unknown properties, trailing JSON and float coercion.
 func DecodeJSON(data []byte, target any) error {
 	data = bytes.TrimPrefix(data, []byte{0xef, 0xbb, 0xbf})
+	if !utf8.Valid(data) {
+		return fmt.Errorf("文件必须使用UTF-8编码")
+	}
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.UseNumber()
 	decoder.DisallowUnknownFields()
